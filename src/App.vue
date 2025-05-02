@@ -19,6 +19,10 @@ const toggle = (tugas) => {
   console.log(tugas.selesai)
 }
 
+const hapusTugas = (t) => {
+  tugas.value = tugas.value.filter(tugas => tugas.id !== t.id)
+}
+
 </script>
 
 <template>
@@ -29,6 +33,7 @@ const toggle = (tugas) => {
     <li v-for="t in tugas" :key="tugas.id">
       <input type="checkbox" v-model="t.selesai" @change="toggle(t)" :checked="t.selesai">
       {{ t.nama }}
+      <button @click="hapusTugas(t)">Hapus</button>
     </li>
   </ul>
 </template>
