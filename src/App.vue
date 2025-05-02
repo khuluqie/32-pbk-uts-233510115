@@ -13,6 +13,12 @@ const tambahTugas = () => {
   tugasBaru.value = ''
   console.log(tugas.value)
 }
+
+const toggle = (tugas) => {
+  tugas.selesai == !tugas.selesai
+  console.log(tugas.selesai)
+}
+
 </script>
 
 <template>
@@ -21,6 +27,7 @@ const tambahTugas = () => {
 
   <ul>
     <li v-for="t in tugas" :key="tugas.id">
+      <input type="checkbox" v-model="t.selesai" @change="toggle(t)" :checked="t.selesai">
       {{ t.nama }}
     </li>
   </ul>
